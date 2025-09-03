@@ -226,6 +226,37 @@ class GoogleAIAgent : BaseAIAgent(gcpConfig) {
 - **API Documentation**: Detailed API reference (generated from code comments)
 - **Best Practices**: Guidelines for optimal performance and security
 
+## Build & Development
+
+### Automated Builds
+This project includes GitHub Actions workflows for automated Android builds:
+- **Continuous Integration**: Automatic builds on push/PR to main branches
+- **Multiple API Levels**: Testing across Android API 29 and 34
+- **Artifact Generation**: Testable APK files generated for each build
+- **Comprehensive Testing**: Unit tests, lint checks, and instrumented tests
+
+### Manual Build
+To build the project locally:
+```bash
+# Build debug APK
+./gradlew assembleDebug
+
+# Build release APK  
+./gradlew assembleRelease
+
+# Run tests
+./gradlew test
+
+# Run lint checks
+./gradlew lintDebug
+```
+
+### Download APKs
+1. Go to the [Actions tab](../../actions) in the repository
+2. Select a successful workflow run
+3. Download the APK artifacts (debug or release)
+4. Install on your Android device (enable "Unknown sources" first)
+
 ## Contributing
 
 1. Fork the repository
