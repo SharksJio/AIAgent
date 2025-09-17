@@ -26,7 +26,12 @@ class ContentFilter {
             topicScores[topic] = score
         }
         
-        return topicScores.maxByOrNull { it.value }?.key ?: TopicCategory.GENERAL
+        val maxScore = topicScores.values.maxOrNull() ?: 0
+        return if (maxScore > 0) {
+            topicScores.maxByOrNull { it.value }?.key ?: TopicCategory.GENERAL
+        } else {
+            TopicCategory.GENERAL
+        }
     }
     
     /**
